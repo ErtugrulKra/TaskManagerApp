@@ -1,0 +1,12 @@
+
+  <div class="mx-auto p-2 m-5">
+    <h1 id="mx-auto">Task List For Assessment</h1>
+
+
+    <p *ngIf="!taskList"><em>Loading...</em></p>
+
+
+    <app-task-item *ngFor="let task of taskList" [task]="task" (deleteTaskEvent)="deleteTask($event)">
+
+    </app-task-item>
+  </div>

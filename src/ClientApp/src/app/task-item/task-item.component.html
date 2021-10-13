@@ -1,0 +1,13 @@
+<div class="card m-2" [ngClass]="setClasses()">
+  <div class="card-hader m-1">
+    <h2> {{ task.name }}</h2>
+  </div>
+  <div class="card-text m-4 blockquote ">{{ task.taskContent}} </div>
+  <div class="card-footer">Priority: {{ task.priority }}</div>
+  <div class="card-footer">Status : {{ task.status | eNumAsString:TaskStatus }}</div>
+  <div class="card-link mx-auto">
+    <button class="btn btn-info m-2"    (click)="startTask(task)" *ngIf="task.status==TaskStatus.NotStarted">Start</button>
+    <button class="btn btn-primary m-2" (click)="completeTask(task)" *ngIf="task.status==TaskStatus.InProgres">Complete</button>
+    <button class="btn btn-danger m-2"  (click)="deleteTask(task)" *ngIf="task.status==TaskStatus.Completed">Delete</button>
+  </div>
+</div>

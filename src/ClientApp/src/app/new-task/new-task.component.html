@@ -1,0 +1,35 @@
+<h2>New Task </h2>
+<div class="container">
+  <div *ngIf="showAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{ alertText }}</strong>
+    <button type="button" class="btn-close" (click)="showAlert=false" data-bs-dismiss="alert"
+      aria-label="Close"></button>
+  </div>
+  <form class="form" name="newTask" [formGroup]="taskForm">
+    <div class="mb-3 mt-3">
+      <label for="taskName" class="form-label">Task Name</label>
+      <input formControlName="taskName" type="text" class="form-control" name="taskName">
+      <small *ngIf="taskForm.get('taskName').invalid && taskForm.get('taskName').touched" class="text-danger">Task name
+        is required, minumum lenght must be greater then 10 </small>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="taskContent" class="form-label">Task Content</label>
+      <textarea formControlName="taskContent" class="form-control" name="taskContent"></textarea>
+      <small *ngIf="taskForm.get('taskContent').invalid  && taskForm.get('taskContent').touched"
+        class="text-danger">Task Content is required</small>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="priority" class="form-label">Priority</label>
+      <select formControlName="taskPriority" class="form-select">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <small *ngIf="taskForm.get('taskPriority').invalid  && taskForm.get('taskPriority').touched "
+        class="text-danger">Priority is required</small>
+    </div>
+    <input [disabled]="taskForm.invalid" (click)="submitTask()" type="submit" value="Save" class="btn btn-primary">
+  </form>
+</div>
