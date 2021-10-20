@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "LudopoliTaskApp:build"
+            "browserTarget": "TaskManagerApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "LudopoliTaskApp:build:production"
+              "browserTarget": "TaskManagerApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "LudopoliTaskApp:build"
+            "browserTarget": "TaskManagerApp:build"
           }
         },
         "test": {
@@ -114,7 +114,7 @@
         }
       }
     },
-    "LudopoliTaskApp-e2e": {
+    "TaskManagerApp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -122,7 +122,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "LudopoliTaskApp:serve"
+            "devServerTarget": "TaskManagerApp:serve"
           }
         },
         "lint": {
